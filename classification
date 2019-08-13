@@ -1,0 +1,9 @@
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+import numpy
+l = datasets.load_iris()
+data = numpy.array(l.data)
+target = numpy.array(l.target)
+print (data)
+print (target)
+traindata,testdata,traintarget,testtarget = train_test_split(data,target)
