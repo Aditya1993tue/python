@@ -1,0 +1,15 @@
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+import numpy as np
+l = datasets.load_iris()
+data = np.array(l.data)
+target = np.array(l.target)
+print (data)
+print (target)
+traindata,testdata,traintarget,testtarget = train_test_split(data,target)
+#from sklearn.model_selection import train_test_split
+#traindata, testdata, traintarget, testtarget = train_test_split(traindata,  testdata, test_size = 7, random_state = 1)
+#t = numpy.where([,x,y])
+for i in range(0,3):
+ t = np.where(traintarget==i)
+print(t)
