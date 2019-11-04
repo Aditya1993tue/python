@@ -1,0 +1,25 @@
+import scipy as sp
+import matplotlib.pyplot as plt
+
+data = sp.genfromtxt("C:\\Users\\lab.AMITYKOL.002\\Desktop\\web_trafick.tsv", delimiter = '\t')
+x= data[:,0]
+y=data[:,1]
+x= x[~sp.isnan(y)]
+y=y[~sp.isnan(y)]
+plt.scatter(x,y)
+plt.show()
+
+
+fpq,residuals,rank,su,rcond = sp.polyfit(x,y,4,full = True)
+
+f1 = sp.poly1d(fpq)
+
+def error(f,x,y):
+    return sp.sum((y-f(x))**2)
+               
+fx = sp.linspace(0, x[-1], 1000)
+
+plt.scatter(x,y)
+plt.plot(fx,f1(fx),linewidth = 4,color='green')
+plt.show()
+
